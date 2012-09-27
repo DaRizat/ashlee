@@ -8,7 +8,7 @@ class CategoriesController < ApplicationController
     respond_to do |format|
       if @category.save
         format.html { redirect_to admin_index_path, notice: 'Category was successfully created.' }
-        format.json { render json: @category, status: :created, location: @user }
+        format.json { render json: @category, status: :created, location: @category }
       else
         format.html { render action: "new" }
         format.json { render json: @category.errors, status: :unprocessable_entity }
@@ -21,6 +21,7 @@ class CategoriesController < ApplicationController
   end
 
   def edit
+    @category = Category.find(params[:id])
   end
 
   def update

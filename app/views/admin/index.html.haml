@@ -3,7 +3,7 @@
 - @categories.each do |category|
   %ul.nav
     %li
-      =link_to category.name, category    
+      =link_to category.name, edit_category_path(category)    
 =link_to "Create A New Category", new_category_path, class: "btn btn-primary"
  
 %h2 Images
