@@ -6,16 +6,8 @@ class AdminController < ApplicationController
   def index
     @users = User.all
     @categories = Category.all
-    
-    @category_hash = {}
-  
-    @categories.each do |category|
-      @category_hash[category.name] = {
-        :image_count => category.images.count,
-        :featured_images => Image.where("category_id = ? AND feature =?", category.id, true)
-      }
-    end
-
+    @featured_images = Image.where("feature = ?", true)
+    #@featured_images = []
     @image_count = Image.all.count
   end
 

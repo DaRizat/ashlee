@@ -10,11 +10,13 @@
     .span12
       %h3.edit-linkable= category.name
       =link_to "Edit", edit_category_path(category), class: "edit-link"
+    
     .row
       .span12
-        -@category_hash[category.name][:featured_images].each do |image|
-          .thumbnail
-            %img(src="#{image.url}" style="height:200px; width:200px;")
+        -@featured_images.each do |image|
+          -if image.category_id == category.id
+            .thumbnail.span2
+              %img(src="#{image.url}" style="height:100px; width:100px;")
 
          
 .row(style="margin-bottom: 15px;")
