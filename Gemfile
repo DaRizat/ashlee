@@ -6,8 +6,13 @@ gem 'rails', '3.2.1'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'sqlite3'
+
 gem 'capistrano'
+gem "capistrano-ext"
+gem "rvm-capistrano"
+
 gem 'haml-rails'
+
 gem 'cancan'
 gem "bcrypt-ruby", :require => "bcrypt"
 
