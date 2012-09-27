@@ -8,19 +8,22 @@
   %body
 
     /UNIVERSAL NAVIGATION BAR
-    .navbar.navbar-fixed-top
-      .navbar-inner
-        .container
+    .container
+      .row
+        .span12
+          .navbar.navbar-fixed-top
+            .navbar-inner
+              .container
 
-          = link_to "Ashlee DeAngelo", admin_index_path, class: 'brand'
+                = link_to "Ashlee DeAngelo", admin_index_path, class: 'brand'
 
-          %ul.nav
-            - if user_logged_in?
-              %li= link_to "Log Out", log_out_path   
-            - else
-              %li= link_to "Log In", log_in_path
+                %ul.nav
+                  - if user_logged_in?
+                    %li= link_to "Log Out", log_out_path   
+                  - else
+                    %li= link_to "Log In", log_in_path
 
-      .container(style='margin-top:20px')
+      .container(style='margin-top:60px')
         .content
           .row
             .span12
@@ -30,6 +33,7 @@
                 %div{:class => "alert alert-#{name == :notice ? "success" : "error"}"}
                   %a.close(data-dismiss="alert") ×
                   %div{:id => "flash_#{name}"}= msg
-
-          /ALL LOADED CONTENT WILL LOAD HERE
-          = yield
+          .row
+            .span12
+              /ALL LOADED CONTENT WILL LOAD HERE
+              = yield

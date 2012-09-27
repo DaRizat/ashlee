@@ -1,0 +1,5 @@
+.thumbnail.span2
+  %img(src="#{image.url}" style="height:100px; width:150px; display:block;")
+  %p= image.title
+  =link_to "Edit", edit_image_path(image), class: "btn btn-primary edit-linkable"
+  =link_to "Delete", image_path(image), action: "destroy", class: "btn btn-error"

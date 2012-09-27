@@ -15,9 +15,7 @@
       .span12
         -@featured_images.each do |image|
           -if image.category_id == category.id
-            .thumbnail.span2
-              %img(src="#{image.url}" style="height:100px; width:100px;")
-
+            =render :partial => 'images/thumbnail', :locals => {:image => image}
          
 .row(style="margin-bottom: 15px;")
   %ul.admin-header
@@ -30,6 +28,10 @@
   .span12
     %p.edit-linkable There are currently #{@image_count} images in the system.
     =link_to "See all", images_path, class: "edit-link"
+  .row
+    .span12
+      -@recent_images.each do |image|
+        =render :partial => 'images/thumbnail', :locals => {:image => image}
 
 .row(style="margin-bottom: 15px;")
   %ul.admin-header

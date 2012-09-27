@@ -7,7 +7,7 @@ class AdminController < ApplicationController
     @users = User.all
     @categories = Category.all
     @featured_images = Image.where("feature = ?", true)
-    #@featured_images = []
+    @recent_images = Image.find(:all, :order => "updated_at desc", :limit => 5)
     @image_count = Image.all.count
   end
 
