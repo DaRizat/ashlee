@@ -1,2 +1,30 @@
-%h1 Images#edit
-%p Find me in app/views/images/edit.html.haml
+%img(src="#{@image.url}" style="height:250px; width:250px; display:block;")
+
+=form_for @image do |f|
+
+  -if @image.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@image.errors.count, "error")} prohibited this image from being saved:"
+      %ul
+        - @image.errors.full_messages.each do |msg|
+          %li= msg
+
+  -#=render :partial => 'images/form', :locals => {:categories => @categories}
+  .field
+    =f.label :title
+    =f.text_field :title
+
+  .field
+    =f.label :caption
+    =f.text_area :caption
+
+  .field
+    =f.label :category
+    =f.select :category, @categories
+
+  .field
+    =f.label :feature
+    =f.check_box :feature
+
+  .field
+    =f.submit "Save", class: "btn btn-primary"
