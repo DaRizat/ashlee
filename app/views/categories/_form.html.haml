@@ -1,0 +1,12 @@
+= form_for @category do |f|
+
+  .field
+    =f.label :name
+    =f.text_field :name
+
+  .field
+    =f.label :descripion
+    =f.text_area :description
+
+  .field
+    =f.submit "Save", class: "btn btn-primary"

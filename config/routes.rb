@@ -1,14 +1,18 @@
 Ashlee::Application.routes.draw do
 
+  get "welcome/index"
+
   get "admin/index"
   get "contact/index"
-
   resources :categories, :only => :show  
 
   scope "admin" do
+    get "log_out" => "user_sessions#destroy", :as => "log_out"
+    get "log_in" => "user_sessions#new", :as => "log_in"
     resources :users
     resources :images
     resources :categories, :except => :show
+    resources :user_sessions, :only => :create
   end
 
   root :to => "admin#index"

@@ -1,2 +1,22 @@
-%h1 Admin#index
-%p Find me in app/views/admin/index.html.haml
+%h2 Categories 
+
+- @categories.each do |category|
+  %ul.nav
+    %li
+      =link_to category.name, category    
+=link_to "Create A New Category", new_category_path, class: "btn btn-primary"
+ 
+%h2 Images
+
+%p Number of images #{@image_count}
+=link_to "Create A New Image", new_image_path, class: "btn btn-primary"
+
+%h2 Users
+- @users.each do |user|
+  %ul.nav
+  %li
+    #{user.name} 
+  %li
+    =link_to "edit", edit_user_path(user)
+
+=link_to "Create A New User", new_user_path, class: "btn btn-primary"

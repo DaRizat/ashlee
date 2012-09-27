@@ -1,4 +1,7 @@
 class ImagesController < ApplicationController
+
+  layout "admin"
+
   def new
   end
 
