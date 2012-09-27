@@ -44,7 +44,8 @@ class CategoriesController < ApplicationController
   end
 
   def show
-    @category = Category.new(params[:id])
+    render :layout => 'application'
+    @category = Category.find(params[:id])
     @images = @category.images
   end
 end

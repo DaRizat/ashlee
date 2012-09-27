@@ -12,7 +12,7 @@ class ImagesController < ApplicationController
 
   def create
     image = params[:image]
-    @image = Image.new :title => image[:title], :category_id => Category.find_by_name(image[:category]), :caption => image[:caption]
+    @image = Image.new :title => image[:title], :category_id => Category.find_by_name(image[:category]), :caption => image[:caption], :feature => image[:feature]
 
     @file_name = to_lower_underscore "#{image[:category]} #{image[:title]}"
 
