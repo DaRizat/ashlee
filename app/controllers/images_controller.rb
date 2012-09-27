@@ -4,6 +4,7 @@ class ImagesController < ApplicationController
 
   def new
     @image = Image.new
+    @categories = Category.find(:all, :select => 'name').map(&:name)
   end
 
   def create

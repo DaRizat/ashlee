@@ -1,7 +1,7 @@
 Ashlee::Application.routes.draw do
 
   get "welcome/index"
-
+  get "admin" => "admin#index"
   get "admin/index"
   get "contact/index"
   resources :categories, :only => :show  
@@ -15,7 +15,7 @@ Ashlee::Application.routes.draw do
     resources :user_sessions, :only => :create
   end
 
-  root :to => "admin#index"
+  root :to => "welcome#index"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

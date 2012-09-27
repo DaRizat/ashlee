@@ -1,0 +1,23 @@
+=form_for @image do |f|
+
+  -if @image.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@image.errors.count, "error")} prohibited this image from being saved:"
+      %ul
+        - @image.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    =f.label :title
+    =f.text_field :title
+
+  .field
+    =f.label :caption
+    =f.text_area :caption
+
+  .field
+    =f.label :category
+    =f.select :category, @categories
+
+  .field
+    =f.submit "Save", class: "btn btn-primary"
