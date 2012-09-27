@@ -61,8 +61,10 @@ class ImagesController < ApplicationController
   def destroy
     @image = Image.find(params[:id])
 
-    if AWS::S3::S3Object.exists? @image.aws_file_name, current_bucket
-      AWS::S3::S3Object.delete @image.aws_file_name, current_bucket
+    if not @image.aws_file_name.blank?
+      if AWS::S3::S3Object.exists? @image.aws_file_name, current_bucket
+        AWS::S3::S3Object.delete @image.aws_file_name, current_bucket
+      end
     end
 
     if @image.destroy
