@@ -60,7 +60,7 @@ namespace :deploy do
   task :start do ; end
   task :stop do ; end
   task :restart, :roles => :app, :except => { :no_release => true } do
-    run "#{try_sudo} /home/ec2-user/opt/nginx/sbin/nginx -s reload"
+    run "sudo /home/ec2-user/opt/nginx/sbin/nginx -s reload"
   end
   
   task :initial do 
