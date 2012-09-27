@@ -11,7 +11,7 @@ end
 gem 'capistrano'
 gem "capistrano-ext"
 gem "rvm-capistrano"
-
+gem 'aws-s3'
 gem 'haml-rails'
 
 gem 'cancan'

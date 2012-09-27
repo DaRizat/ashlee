@@ -1,22 +1,44 @@
-%h2 Categories 
+.row(style="margin-bottom: 15px;")
+  %ul.admin-header
+    %li
+      %h2 Categories
+    %li 
+      =link_to "Create A New Category", new_category_path, class: "btn btn-success"
 
 - @categories.each do |category|
-  %ul.nav
+  .row.well
+    .span12
+      %h3.edit-linkable= category.name
+      =link_to "Edit", edit_category_path(category), class: "edit-link"
+    .row
+      .span12
+        -@category_hash[category.name][:featured_images].each do |image|
+          .thumbnail
+            %img(src="#{image.url}" style="height:200px; width:200px;")
+
+         
+.row(style="margin-bottom: 15px;")
+  %ul.admin-header
     %li
-      =link_to category.name, edit_category_path(category)    
-=link_to "Create A New Category", new_category_path, class: "btn btn-primary"
- 
-%h2 Images
+      %h2 Images
+    %li
+      =link_to "Create A New Image", new_image_path, class: "btn btn-success"
 
-%p Number of images #{@image_count}
-=link_to "Create A New Image", new_image_path, class: "btn btn-primary"
+.row.well
+  .span12
+    %p.edit-linkable There are currently #{@image_count} images in the system.
+    =link_to "See all", images_path, class: "edit-link"
 
-%h2 Users
-- @users.each do |user|
-  %ul.nav
-  %li
-    #{user.name} 
-  %li
-    =link_to "edit", edit_user_path(user)
+.row(style="margin-bottom: 15px;")
+  %ul.admin-header
+    %li
+      %h2 Users
+    %li
+      =link_to "Create A New User", new_user_path, class: "btn btn-success"
 
-=link_to "Create A New User", new_user_path, class: "btn btn-primary"
+.row.well
+  .span12
+    - @users.each do |user|
+      %h3.edit-linkable #{user.name} 
+      =link_to "Edit", edit_user_path(user), class: "edit-link"
+

@@ -10,7 +10,7 @@ class UserSessionsController < ApplicationController
 
     if @user
       session[:user_id] = @user.id
-      redirect_to root_url, :notice => "Logged In!"
+      redirect_to admin_index_url, :notice => "Logged In!"
     else
       flash.now.alert = "Invalid email or password"
       render "new"

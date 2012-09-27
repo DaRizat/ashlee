@@ -1,0 +1,31 @@
+.admin-header { 
+  display: inline;
+  margin-left: 0;
+  margin-bottom: 18px;
+  list-style: none;
+  vertical-align: middle;
+}
+
+.admin-header li {
+  display: inline;
+  margin-left: 15px;
+}
+
+.admin-header li > h2 {
+  display: inline;
+}
+
+.admin-header li > a {
+  display: inline;
+  float: right;
+}
+
+.edit-linkable {
+  display: inline;
+  margin-right: 5px;
+}
+
+.edit-link {
+  font-size: 12px;
+  font-weight: bold;
+}

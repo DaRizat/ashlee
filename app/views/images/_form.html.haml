@@ -8,6 +8,10 @@
           %li= msg
 
   .field
+    %label Upload an Image
+    =f.file_field "file"
+
+  .field
     =f.label :title
     =f.text_field :title
 
@@ -18,6 +22,10 @@
   .field
     =f.label :category
     =f.select :category, @categories
+
+  .field
+    =f.label :feature
+    =f.check_box :feature
 
   .field
     =f.submit "Save", class: "btn btn-primary"
