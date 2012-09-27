@@ -61,7 +61,9 @@ class ImagesController < ApplicationController
   def destroy
     @image = Image.find(params[:id])
 
-    AWS::S3::S3Object.delete @image.aws_file_name, current_bucket
+    if AWS::S3::S3Object.exists? @image.aws_file_name, current_bucket
+      AWS::S3::S3Object.delete @image.aws_file_name, current_bucket
+    end
 
     if @image.destroy
       redirect_to admin_index_path, notice: "Image was successfully deleted."
