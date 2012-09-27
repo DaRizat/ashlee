@@ -11,6 +11,8 @@
     %label Upload an Image
     =f.file_field "file"
 
+  -#=render :partial => "images/properties", :locals => {categories => @categories}
+
   .field
     =f.label :title
     =f.text_field :title

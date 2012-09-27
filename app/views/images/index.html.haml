@@ -1,2 +1,4 @@
-%h1 Images#index
-%p Find me in app/views/images/index.html.haml
+.row
+  .span12
+    -@images.each do |image|
+      =render :partial => 'images/thumbnail', :locals => {:image => image}
