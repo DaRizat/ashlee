@@ -1,5 +1,7 @@
 class ImagesController < ApplicationController
 
+  before_filter :ensure_login
+
   layout "admin"
 
   require("aws/s3")
