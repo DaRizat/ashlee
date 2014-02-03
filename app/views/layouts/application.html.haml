@@ -1,0 +1,22 @@
+!!!
+%html
+  %head
+    %title Paper Street Photography
+    = stylesheet_link_tag    "application", :media => "all" 
+    = javascript_include_tag "application" 
+    = csrf_meta_tags 
+  %body
+    .container
+      = yield
+
+      .row.header
+        %ul.nav.nav-pills
+          - @categories.each do |category|
+            %li.active  
+              =link_to "#{category.name}", category
+
+    .footer
+      .container
+        .row
+          .col-xs-12.col-md-6.col-lg-3
+            = image_tag "logo.png"

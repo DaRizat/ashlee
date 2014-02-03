@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.1'
+gem 'rails', '>= 3.2.1'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -13,6 +13,11 @@ gem "capistrano-ext"
 gem "rvm-capistrano"
 gem 'aws-s3'
 gem 'haml-rails'
+
+gem 'carrierwave'
+gem 'mini_magick'
+gem 'fog'
+gem 'jcrop-rails'
 
 gem 'cancan'
 gem "bcrypt-ruby", :require => "bcrypt"

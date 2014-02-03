@@ -34,23 +34,23 @@ class ImagesController < ApplicationController
   end
 
   def update
-      @file_name = to_lower_underscore "#{@image.id} #{@image.category} #{@image.title}"
+    @file_name = to_lower_underscore "#{@image.id} #{@image.category} #{@image.title}"
 
-      if @file_name != @image.aws_file_name 
-        if AWS::S3::S3Object.exists? @image.aws_file_name, current_bucket     
-          AWS::S3::S3Object.rename(@image.aws_file_name, @file_name, current_bucket) 
-        end
-
-        @image.aws_file_name = @file_name
+    if @file_name != @image.aws_file_name 
+      if AWS::S3::S3Object.exists? @image.aws_file_name, current_bucket     
+        AWS::S3::S3Object.rename(@image.aws_file_name, @file_name, current_bucket) 
       end
 
-      if @image.save
-        format.html { redirect_to admin_index_path, notice: 'Image was successfully created.' }
-        format.json { render json: @image, status: :created, location: @image }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @image.errors, status: :unprocessable_entity }
-      end
+      @image.aws_file_name = @file_name
+    end
+
+    if @image.save
+      format.html { redirect_to admin_index_path, notice: 'Image was successfully created.' }
+      format.json { render json: @image, status: :created, location: @image }
+    else
+      format.html { render action: "new" }
+      format.json { render json: @image.errors, status: :unprocessable_entity }
+    end
   end
 
   def edit

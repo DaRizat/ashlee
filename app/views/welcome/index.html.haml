@@ -1,7 +1,4 @@
-%h1 Welcome to ashleedeangelo.com
+- cat = @categories.first
 
-- @categories.each do |category|
-
-  =link_to "#{category.name}", category
-
-=link_to "Contact Ashlee", contact_index_path
+%img#main_image_0.main-image{src: cat.images.first.url}
+%img#main_image_1.main-image
