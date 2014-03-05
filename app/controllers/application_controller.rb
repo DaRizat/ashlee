@@ -8,8 +8,8 @@ class ApplicationController < ActionController::Base
   
   def connect_to_s3 
     AWS::S3::Base.establish_connection!(
-      :access_key_id     => "AKIAI6O755TN7LMPDB3Q",
-      :secret_access_key => "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"
+      :access_key_id     => ENV['ASHLEE_AWS_KEY'],
+      :secret_access_key => ENV['ASHLEE_AWS_SECRET']
     )
   end
 

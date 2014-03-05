@@ -23619,3 +23619,49 @@ Served asset /footer_bkg.png - 304 Not Modified (0ms)
 
 Started GET "/assets/logo.png" for 127.0.0.1 at 2014-02-03 01:10:02 -0800
 Served asset /logo.png - 304 Not Modified (0ms)
+
+
+Started GET "/categories/1" for 127.0.0.1 at 2014-02-03 01:28:56 -0800
+Processing by CategoriesController#show as HTML
+  Parameters: {"id"=>"1"}
+  Rendered categories/show.html.haml within layouts/application (2.4ms)
+Completed 500 Internal Server Error in 11.6ms
+
+ActionView::Template::Error (undefined method `each' for nil:NilClass):
+    11: 
+    12:       .row.header
+    13:         %ul.nav.nav-pills
+    14:           - @categories.each do |category|
+    15:             %li.active  
+    16:               =link_to "#{category.name}", category
+    17: 
+  app/views/layouts/application.html.haml:14:in `_app_views_layouts_application_html_haml___1005150932784331764_70295969047860'
+  app/controllers/categories_controller.rb:47:in `show'
+
+
+  Rendered /Users/jackbishop/.rvm/gems/ruby-1.9.3-p484@ashlee/gems/actionpack-3.2.16/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.7ms)
+  Rendered /Users/jackbishop/.rvm/gems/ruby-1.9.3-p484@ashlee/gems/actionpack-3.2.16/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.9ms)
+  Rendered /Users/jackbishop/.rvm/gems/ruby-1.9.3-p484@ashlee/gems/actionpack-3.2.16/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (14.6ms)
+
+
+Started GET "/categories/2" for 127.0.0.1 at 2014-02-03 01:29:00 -0800
+Processing by CategoriesController#show as HTML
+  Parameters: {"id"=>"2"}
+  Rendered categories/show.html.haml within layouts/application (0.1ms)
+Completed 500 Internal Server Error in 6.3ms
+
+ActionView::Template::Error (undefined method `each' for nil:NilClass):
+    11: 
+    12:       .row.header
+    13:         %ul.nav.nav-pills
+    14:           - @categories.each do |category|
+    15:             %li.active  
+    16:               =link_to "#{category.name}", category
+    17: 
+  app/views/layouts/application.html.haml:14:in `_app_views_layouts_application_html_haml___1005150932784331764_70295969047860'
+  app/controllers/categories_controller.rb:47:in `show'
+
+
+  Rendered /Users/jackbishop/.rvm/gems/ruby-1.9.3-p484@ashlee/gems/actionpack-3.2.16/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+  Rendered /Users/jackbishop/.rvm/gems/ruby-1.9.3-p484@ashlee/gems/actionpack-3.2.16/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.8ms)
+  Rendered /Users/jackbishop/.rvm/gems/ruby-1.9.3-p484@ashlee/gems/actionpack-3.2.16/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (9.0ms)
